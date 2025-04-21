@@ -1,9 +1,8 @@
 %-------------------------
-% Resume in Latex
-% Author : Sourabh Bajaj
-% Website: https://github.com/sb2nov/resume
-% License : MIT
-%------------------------
+% Resume in LaTeX
+% Author: Adapted from https://github.com/sb2nov/resume
+% License: MIT
+%-------------------------
 
 \documentclass[letterpaper,11pt]{article}
 
@@ -16,10 +15,10 @@
 \usepackage{enumitem}
 \usepackage[pdftex]{hyperref}
 \usepackage{fancyhdr}
-
+\usepackage{ragged2e}
 
 \pagestyle{fancy}
-\fancyhf{} % clear all header and footer fields
+\fancyhf{}
 \fancyfoot{}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
@@ -32,141 +31,132 @@
 \addtolength{\textheight}{1.0in}
 
 \urlstyle{same}
-
 \raggedbottom
 \raggedright
 \setlength{\tabcolsep}{0in}
+\hypersetup{colorlinks=true, urlcolor=blue}
 
-% Sections formatting
+% Section formatting
 \titleformat{\section}{
-  \vspace{-4pt}\scshape\raggedright\large
+	\vspace{-4pt}\scshape\raggedright\large
 }{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
 
-%-------------------------
 % Custom commands
-\newcommand{\resumeItem}[2]{
-  \item\small{
-    \textbf{#1}{: #2 \vspace{-2pt}}
-  }
-}
-
+\newcommand{\resumeItem}[2]{\item\small{\textbf{#1}: #2 \vspace{-2pt}}}
 \newcommand{\resumeSubheading}[4]{
-  \vspace{-1pt}\item
-    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-      \textbf{#1} & #2 \\
-      \textit{\small#3} & \textit{\small #4} \\
-    \end{tabular*}\vspace{-5pt}
+	\vspace{-1pt}\item
+	\begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+		\textbf{#1} & #2 \\
+		\textit{\small#3} & \textit{\small #4} \\
+	\end{tabular*}\vspace{-5pt}
 }
-
 \newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
-
 \renewcommand{\labelitemii}{$\circ$}
-
 \newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
-\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+	\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
 \newcommand{\resumeItemListStart}{\begin{itemize}}
-\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+	\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
 
 %-------------------------------------------
-%%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
+%%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%
+%\linespread{.95}
 \begin{document}
-
-%----------HEADING-----------------
-\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
-  \textbf{\href{http://sourabhbajaj.com/}{\Large Sourabh Bajaj}} & Email : \href{mailto:sourabh@sourabhbajaj.com}{mail@website.com}\\
-  \href{http://sourabhbajaj.com/}{http://www.sourabhbajaj.com} & Mobile : +1-123-456-7890 \\
-\end{tabular*}
-
-
-%-----------EDUCATION-----------------
-\section{Education}
-  \resumeSubHeadingListStart
-    \resumeSubheading
-      {Georgia Institute of Technology}{Atlanta, GA}
-      {Master of Science in Computer Science;  GPA: 4.00}{Aug. 2012 -- Dec. 2013}
-    \resumeSubheading
-      {Birla Institute of Technology and Science}{Pilani, India}
-      {Bachelor of Engineering in Electrical and Electronics;  GPA: 3.66 (9.15/10.0)}{Aug. 2008 -- July. 2012}
-  \resumeSubHeadingListEnd
-
-
-%-----------EXPERIENCE-----------------
-\section{Experience}
-  \resumeSubHeadingListStart
-
-    \resumeSubheading
-      {Google}{Mountain View, CA}
-      {Software Engineer}{Oct 2016 - Present}
-      \resumeItemListStart
-        \resumeItem{Tensorflow}
-          {TensorFlow is an open source software library for numerical computation using data flow graphs; primarily used for training deep learning models.}
-        \resumeItem{Apache Beam}
-          {Apache Beam is a unified model for defining both batch and streaming data-parallel processing pipelines, as well as a set of language-specific SDKs for constructing pipelines and runners.}
-      \resumeItemListEnd
-
-    \resumeSubheading
-      {Coursera}{Mountain View, CA}
-      {Senior Software Engineer}{Jan 2014 - Oct 2016}
-      \resumeItemListStart
-        \resumeItem{Notifications}
-          {Service for sending email, push and in-app notifications. Involved in features such as delivery time optimization, tracking, queuing and A/B testing. Built an internal app to run batch campaigns for marketing etc.}
-        \resumeItem{Nostos}
-          {Bulk data processing and injection service from Hadoop to Cassandra and provides a thin REST layer on top for serving offline computed data online.}
-        \resumeItem{Workflows}
-          {Dataduct an open source workflow framework to create and manage data pipelines leveraging reusables patterns to expedite developer productivity.}
-        \resumeItem{Data Collection}
-          {Designed the internal survey and crowd sourcing platfowm which allowed for creating various tasks for crowd sourding or embedding surveys across the Coursera platform.}
-        \resumeItem{Dev Environment}
-          {Analytics environment based on docker and AWS, standardized the python and R dependencies. Wrote the core libraries that are shared by all data scientists.}
-        \resumeItem{Data Warehousing}
-          {Setup, schema design and management of Amazon Redshift. Built an internal app for access to the data using a web interface. Dataduct integration for daily ETL injection into Redshift.}
-        \resumeItem{Recommendations}
-          {Core service for all recommendation systems at Coursesa, currently used on the homepage and throughout the content discovery process. Worked on both offline training and online serving.}
-        \resumeItem{Content Discovery}
-          {Improved content discovery by building a new onboarding experience on coursera. Using this to personalize the search and browse experience. Also worked on ranking and indexing improvements.}
-        \resumeItem{Course Dashboards}
-          {Instructor dashboards and learner surveying tools, which helped instructors run their class better by providing data on Assignments and Learner Activity.}
-      \resumeItemListEnd
-
-    \resumeSubheading
-      {Lucena Research}{Atlanta, GA}
-      {Data Scientist}{Summer 2012 and 2013}
-      \resumeItemListStart
-        \resumeItem{Portfolio Management}
-          {Created models for portfolio hedging,  portfolio optimization and price forecasting. Also creating a strategy backtesting engine used for simulating and backtesting strategies.}
-        \resumeItem{QuantDesk}
-          {Python backend for a web application used by hedge fund managers for portfolio management.}
-      \resumeItemListEnd
-
-  \resumeSubHeadingListEnd
-
-
-%-----------PROJECTS-----------------
-\section{Projects}
-  \resumeSubHeadingListStart
-    \resumeSubItem{QuantSoftware Toolkit}
-      {Open source python library for financial data analysis and machine learning for finance.}
-    \resumeSubItem{Github Visualization}
-      {Data Visualization of Git Log data using D3 to analyze project trends over time.}
-    \resumeSubItem{Recommendation System}
-      {Music and Movie recommender systems using collaborative filtering on public datasets.}
-%     \resumeSubItem{Mac Setup}
-%       {Book that gives step by step instructions on setting up developer environment on Mac OS.}
-  \resumeSubHeadingListEnd
-
-%
-%--------PROGRAMMING SKILLS------------
-\section{Programming Skills}
- \resumeSubHeadingListStart
-   \item{
-     \textbf{Languages}{: Scala, Python, Javascript, C++, SQL, Java}
-     \hfill
-     \textbf{Technologies}{: AWS, Play, React, Kafka, GCE}
-   }
- \resumeSubHeadingListEnd
-
-
-%-------------------------------------------
+	\justifying
+	
+	%----------HEADING-----------------
+	\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+		\textbf{\href{https://www.linkedin.com/in/kundan-k-singh/}{\Large Kundan Kumar}} & Email: \href{mailto:kks.inbx@gmail.com}{kks.inbx@gmail.com} \\
+		\textit{Backend Engineer | 7.5 Years Experience} & Phone: +91-9905756871 \\
+	\end{tabular*}
+	
+	%-----------EDUCATION-----------------
+	\section{Education}
+	\resumeSubHeadingListStart
+	\resumeSubheading
+	{Indian Institute of Technology, Delhi}{Delhi, IN}
+	{Bachelor of Technology in Electrical and Electronics Engineering; GPA: 7}{Aug 2010 -- June 2014}
+	\resumeSubHeadingListEnd
+	
+	%-----------EXPERIENCE-----------------
+	\section{Experience}
+	\resumeSubHeadingListStart
+	
+	\resumeSubheading
+	{Pasarpolis}{Bangalore}
+	{Engineering Lead}{May 2023 -- Present}
+	\resumeItemListStart
+	\resumeItem{Product Expansion}
+	{Architected and onboarded 3 major products — Travel Protection, Extended Warranty, and Offline-to-Online flow — from backend design to production rollout.}
+	\resumeItem{Infrastructure Cleanup}
+	{Merged redundant services (Gateway, Payment, Policy Creation) by enabling dual writes and ensuring data consistency, reducing engineering overhead and infra complexity.}
+	\resumeItem{Wallet Consistency}
+	{Resolved concurrency issues in wallet transactions using locks and async retries; initiated wallet partitioning plan for better throughput.}
+	\resumeItem{Agent Tooling}
+	{Designed hierarchical MLM agent performance dashboards to improve transparency and monitoring, enabling team-level tracking.}
+	\resumeItem{Support Automation}
+	{Introduced internal OPS tools and enhancements based on ticket trend analysis, reducing recurring support tickets by ~90\%.}
+	\resumeItem{Auth Optimization}
+	{Transitioned user login from OTP to PIN-based flow across mobile/web platforms to improve UX and reduce authentication time.}
+	\resumeItemListEnd
+	
+	\resumeSubheading
+	{Nykaa}{Gurgaon}
+	{Senior Software Engineer}{Aug 2022 -- April 2023}
+	\resumeItemListStart
+	\resumeItem{System Optimization}
+	{Implemented application-side caching to reduce Redis network calls by ~70\% and cut API latency for the revenue attribution service.}
+	\resumeItem{High-Traffic Platform}
+	{Developed backend services powering dynamic widgets and personalized user experiences across millions of daily requests, backed by scalable NoSQL systems.}
+	\resumeItem{Data Pipeline Redesign}
+	{Replaced a Pub/Sub-based revenue attribution stream with a cron-based Airflow pipeline, sending JSON deltas to data science via PySpark for transformation and billing.}
+	\resumeItemListEnd
+	
+	\resumeSubheading
+	{Pasarpolis}{Gurgaon}
+	{Senior Software Engineer}{Jan 2021 -- Aug 2022}
+	\resumeItemListStart
+	\resumeItem{Core Service Development}
+	{Built agent-facing services to compare and book insurance policies using Django, Redis, Kafka, MySQL, and MongoDB — all hosted on GCP.}
+	\resumeItem{Financial Modules}
+	{Designed modular financial components — tax calculation, policy endorsements, invoice generation, and a pluggable commission service — handling sensitive transaction flows.}
+	\resumeItemListEnd
+	
+	\bigbreak
+	\centerline{Took a 2.5-year \textbf{career break} to pursue \textbf{UPSC} civil services, reaching final-stage interviews.}
+	\bigbreak
+	
+	\resumeSubheading
+	{Amazon}{Chennai}
+	{SDE-1}{Aug 2017 -- Feb 2018}
+	\resumeItemListStart
+	\resumeItem{Infra Cost Reduction}
+	{Refactored Gateway service into a reusable internal library for downstream teams, projected to save ~\$4M annually in infrastructure costs.}
+	\resumeItem{Service Ownership}
+	{Maintained Gateway and Search \& Discovery services for Amazon Appstore, ensuring performance and scalability across global regions.}
+	\resumeItemListEnd
+	
+	\resumeSubheading
+	{Robert Bosch}{Bangalore}
+	{Senior Engineer}{July 2014 -- June 2017}
+	\resumeItemListStart
+	\resumeItem{Proof-of-Concept Development}
+	{Led PoC development for automotive and smart systems, including Bluetooth-enabled tyre monitoring, Wi-Fi blind spot camera integration, and Zigbee-based smart fields.}
+	\resumeItem{Interface Libraries}
+	{Built reusable display libraries for dot-matrix LCDs to enable alphanumeric input and menu rendering via navigation keys.}
+	\resumeItem{Healthcare Prototyping}
+	{Designed and prototyped a handheld blood potassium monitoring device, owning both embedded firmware and hardware architecture.}
+	\resumeItemListEnd
+	
+	\resumeSubHeadingListEnd
+	
+	%--------PROGRAMMING SKILLS------------
+	\section{Programming Skills}
+	\resumeSubHeadingListStart
+	\item{
+		\textbf{}{Python, Java, C, SQL, MongoDB,} 
+		\textbf{}{Django, Flask, Spring, Kafka, Redis, GCP, AWS} 
+%		\textbf{Cloud Platforms}{: GCP, AWS}
+	}
+	\resumeSubHeadingListEnd
+	
 \end{document}
