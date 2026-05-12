@@ -42,7 +42,7 @@
 }{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
 
 % Custom commands
-\newcommand{\resumeItem}[2]{\item\small{\textbf{#1}: #2 \vspace{-2pt}}}
+\newcommand{\resumeItem}[2]{\item\small{\textbf{#1}: #2}\vspace{-2pt}}
 \newcommand{\resumeSubheading}[4]{
 	\vspace{-1pt}\item
 	\begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
@@ -66,7 +66,7 @@
 	%----------HEADING-----------------
 	\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
 		\textbf{\href{https://www.linkedin.com/in/kundan-k-singh/}{\Large Kundan Kumar}} & Email: \href{mailto:kks.inbx@gmail.com}{kks.inbx@gmail.com} \\
-		\textit{Backend Engineer | 7.5 Years Experience} & Phone: +91-9905756871 \\
+		\textit{Lead Backend Engineer | 8.5 Years Experience} & Phone: +91-9905756871 \\
 	\end{tabular*}
 	
 	%-----------EDUCATION-----------------
@@ -80,13 +80,29 @@
 	%-----------EXPERIENCE-----------------
 	\section{Experience}
 	\resumeSubHeadingListStart
-	
+
 	\resumeSubheading
-	{Pasarpolis}{Bangalore}
-	{Engineering Lead}{May 2023 -- Present}
+	{Leadbeam}{Bangalore}
+	{Lead Backend Engineer}{May 2025 -- Present}
 	\resumeItemListStart
-	\resumeItem{Product Expansion}
-	{Architected and onboarded 3 major products — Travel Protection, Extended Warranty, and Offline-to-Online flow — from backend design to production rollout.}
+	\resumeItem{AI Framework}
+	{Built a unified AI execution framework with versioned prompts/schemas, idempotent runs, per-attempt token \& cost tracking with prompt-cache discounts, and full audit trails --- now powering lead enrichment, qualification, and scoring across the product.}
+	\resumeItem{AI Response Evaluation}
+	{Designed a schema-driven evaluation and validation layer with JSON Schema enforcement, classified failure modes, automatic retry on schema breaks, and aggregated usage analytics by model/activity/ company to continuously monitor AI response quality.}
+	\resumeItem{Lead Scoring}
+	{Architected a versioned scoring system over a $\sim$20M-business dataset combining 46 ICP signals (firmographics, web presence, vertical tags), time-decaying engagement momentum, and configurable boost rules; PostGIS geo-bounding scores $\sim$1M leads per company across 100+ independent configs in Celery batches.}
+	\resumeItem{Atlas Data Pipeline}
+	{Contributed to the Atlas ingestion pipeline that consolidates 15M+ US business records from Overture Maps, Google Places, OpenWebNinja, OSM, and CSV sources into a unified golden-record store with multi-signal deduplication, field-level provenance, and confidence-weighted merging --- powering SMB lead discovery.}
+	\resumeItem{Observability}
+	{Introduced structured JSONL logging, with request id and monitoring across the application, simplifying log aggregation and making incident triage substantially easier (within 5 min max).}
+	\resumeItemListEnd
+
+	\resumeSubheading
+	{Pasarpolis}{Gurgaon}
+	{Engineering Lead}{May 2023 -- May 2025}
+	\resumeItemListStart
+	\resumeItem{Product Expansion \& Team Leading}
+	{Led a team across React frontend and Django backend to architect and onboard 3 major products — Travel Protection, Extended Warranty, and Offline-to-Online flow — from backend design to production rollout.}
 	\resumeItem{Infrastructure Cleanup}
 	{Merged redundant services (Gateway, Payment, Policy Creation) by enabling dual writes and ensuring data consistency, reducing engineering overhead and infra complexity.}
 	\resumeItem{Wallet Consistency}
@@ -97,6 +113,17 @@
 	{Introduced internal OPS tools and enhancements based on ticket trend analysis, reducing recurring support tickets by ~90\%.}
 	\resumeItem{Auth Optimization}
 	{Transitioned user login from OTP to PIN-based flow across mobile/web platforms to improve UX and reduce authentication time.}
+	\resumeItemListEnd
+
+	\vspace{-5pt}\item
+	\begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+		\textit{\small Senior Software Engineer} & \textit{\small Jan 2021 -- Aug 2022} \\
+	\end{tabular*}\vspace{-5pt}
+	\resumeItemListStart
+	\resumeItem{Core Service Development}
+	{Built agent-facing services to compare and book insurance policies using Django, Redis, Kafka, MySQL, and MongoDB — all hosted on GCP.}
+	\resumeItem{Financial Modules}
+	{Designed modular financial components — tax calculation, policy endorsements, invoice generation, and a pluggable commission service — handling sensitive transaction flows.}
 	\resumeItemListEnd
 	
 	\resumeSubheading
@@ -109,16 +136,6 @@
 	{Developed backend services powering dynamic widgets and personalized user experiences across millions of daily requests, backed by scalable NoSQL systems.}
 	\resumeItem{Data Pipeline Redesign}
 	{Replaced a Pub/Sub-based revenue attribution stream with a cron-based Airflow pipeline, sending JSON deltas to data science via PySpark for transformation and billing.}
-	\resumeItemListEnd
-	
-	\resumeSubheading
-	{Pasarpolis}{Gurgaon}
-	{Senior Software Engineer}{Jan 2021 -- Aug 2022}
-	\resumeItemListStart
-	\resumeItem{Core Service Development}
-	{Built agent-facing services to compare and book insurance policies using Django, Redis, Kafka, MySQL, and MongoDB — all hosted on GCP.}
-	\resumeItem{Financial Modules}
-	{Designed modular financial components — tax calculation, policy endorsements, invoice generation, and a pluggable commission service — handling sensitive transaction flows.}
 	\resumeItemListEnd
 	
 	\bigbreak
@@ -154,7 +171,7 @@
 	\resumeSubHeadingListStart
 	\item{
 		\textbf{}{Python, Java, C, SQL, MongoDB,} 
-		\textbf{}{Django, Flask, Spring, Kafka, Redis, GCP, AWS} 
+		\textbf{}{AWS, GCP, Django, Flask, Spring, Kafka, Redis, Clery, Docker, Terraform, PySpark, PostgreSQL, React}
 %		\textbf{Cloud Platforms}{: GCP, AWS}
 	}
 	\resumeSubHeadingListEnd
