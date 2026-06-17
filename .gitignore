@@ -2,3 +2,10 @@
 *.log
 *.out
 *.synctex.gz
+*.fdb_latexmk
+*.fls
+*.toc
+*.bbl
+*.blg
+*.dvi
+.DS_Store

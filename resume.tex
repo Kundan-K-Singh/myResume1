@@ -4,7 +4,7 @@
 % License: MIT
 %-------------------------
 
-\documentclass[letterpaper,11pt]{article}
+\documentclass[letterpaper,10.5pt]{extarticle}
 
 \usepackage{latexsym}
 \usepackage[empty]{fullpage}
@@ -46,6 +46,12 @@
 \newcommand{\resumeSubheading}[4]{
 	\vspace{-1pt}\item
 	\begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+		\textbf{#1}, \textit{\small #3} & #2, \textit{\small #4} \\
+	\end{tabular*}\vspace{-5pt}
+}
+\newcommand{\resumeEducation}[4]{
+	\vspace{-1pt}\item
+	\begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
 		\textbf{#1} & #2 \\
 		\textit{\small#3} & \textit{\small #4} \\
 	\end{tabular*}\vspace{-5pt}
@@ -59,7 +65,7 @@
 
 %-------------------------------------------
 %%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%
-%\linespread{.95}
+\linespread{.95}
 \begin{document}
 	\justifying
 	
@@ -72,9 +78,9 @@
 	%-----------EDUCATION-----------------
 	\section{Education}
 	\resumeSubHeadingListStart
-	\resumeSubheading
+	\resumeEducation
 	{Indian Institute of Technology, Delhi}{Delhi, IN}
-	{Bachelor of Technology in Electrical and Electronics Engineering; GPA: 7}{Aug 2010 -- June 2014}
+	{Bachelor of Technology in Electrical and Electronics Engineering; AIR: 1559 (Cat Rank: 174)}{Aug 2010 -- June 2014}
 	\resumeSubHeadingListEnd
 	
 	%-----------EXPERIENCE-----------------
@@ -85,16 +91,16 @@
 	{Leadbeam}{Bangalore}
 	{Lead Backend Engineer}{May 2025 -- Present}
 	\resumeItemListStart
-	\resumeItem{AI Framework}
-	{Built a unified AI execution framework with versioned prompts/schemas, idempotent runs, per-attempt token \& cost tracking with prompt-cache discounts, and full audit trails --- now powering lead enrichment, qualification, and scoring across the product.}
-	\resumeItem{AI Response Evaluation}
-	{Designed a schema-driven evaluation and validation layer with JSON Schema enforcement, classified failure modes, automatic retry on schema breaks, and aggregated usage analytics by model/activity/ company to continuously monitor AI response quality.}
+	\resumeItem{AI Framework \& Evaluation}
+	{Built a unified AI execution framework with versioned prompts/schemas, idempotent runs, per-attempt token \& cost tracking, and full audit trails, plus a schema-driven evaluation layer (JSON Schema validation, classified failure modes, auto-retry, usage analytics) --- powering and monitoring all AI tasks across the product.}
 	\resumeItem{Lead Scoring}
 	{Architected a versioned scoring system over a $\sim$20M-business dataset combining 46 ICP signals (firmographics, web presence, vertical tags), time-decaying engagement momentum, and configurable boost rules; PostGIS geo-bounding scores $\sim$1M leads per company across 100+ independent configs in Celery batches.}
 	\resumeItem{Atlas Data Pipeline}
 	{Contributed to the Atlas ingestion pipeline that consolidates 15M+ US business records from Overture Maps, Google Places, OpenWebNinja, OSM, and CSV sources into a unified golden-record store with multi-signal deduplication, field-level provenance, and confidence-weighted merging --- powering SMB lead discovery.}
+	\resumeItem{AI Error Simplification}
+	{Built a RAG pipeline that turns cryptic backend errors into clear user-facing messages --- OpenAI embeddings + pgvector semantic search retrieve similar past errors to ground LLM generation, backed by a semantic cache that serves repeat errors with zero LLM calls; sub-ms hot path with async Celery workers.}
 	\resumeItem{Observability}
-	{Introduced structured JSONL logging, with request id and monitoring across the application, simplifying log aggregation and making incident triage substantially easier (within 5 min max).}
+	{Introduced structured JSONL logging and monitoring with request-id tracing that propagates across background threads and thread pools, cutting log aggregation and incident triage to within minutes.}
 	\resumeItemListEnd
 
 	\resumeSubheading
@@ -102,23 +108,30 @@
 	{Engineering Lead}{May 2023 -- May 2025}
 	\resumeItemListStart
 	\resumeItem{Product Expansion \& Team Leading}
-	{Led a team across React frontend and Django backend to architect and onboard 3 major products — Travel Protection, Extended Warranty, and Offline-to-Online flow — from backend design to production rollout.}
+	{Owned the Agency vertical with a team of 7, architecting and onboarding 4 major products end-to-end — Travel Protection, Extended Warranty, Offline-to-Online flow, and an MLM performance system.}
 	\resumeItem{Infrastructure Cleanup}
 	{Merged redundant services (Gateway, Payment, Policy Creation) by enabling dual writes and ensuring data consistency, reducing engineering overhead and infra complexity.}
 	\resumeItem{Wallet Consistency}
-	{Resolved concurrency issues in wallet transactions using locks and async retries; initiated wallet partitioning plan for better throughput.}
-	\resumeItem{Agent Tooling}
-	{Designed hierarchical MLM agent performance dashboards to improve transparency and monitoring, enabling team-level tracking.}
+	{Resolved wallet-service concurrency issues and boosted throughput with database row locks and Redis distributed locks, then split the single bottleneck ledger account into 10 partitioned wallets with periodic background rebalancing to spread write contention.}
 	\resumeItem{Support Automation}
 	{Introduced internal OPS tools and enhancements based on ticket trend analysis, reducing recurring support tickets by ~90\%.}
 	\resumeItem{Auth Optimization}
 	{Transitioned user login from OTP to PIN-based flow across mobile/web platforms to improve UX and reduce authentication time.}
 	\resumeItemListEnd
 
-	\vspace{-5pt}\item
-	\begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-		\textit{\small Senior Software Engineer} & \textit{\small Jan 2021 -- Aug 2022} \\
-	\end{tabular*}\vspace{-5pt}
+	\resumeSubheading
+	{Nykaa}{Gurgaon}
+	{Senior Software Engineer}{Aug 2022 -- April 2023}
+	\resumeItemListStart
+	\resumeItem{System Optimization}
+	{Implemented application-side caching to reduce Redis network calls by ~70\% and cut API latency for the revenue attribution service.}
+	\resumeItem{High-Traffic Platform \& Data Pipeline}
+	{Built backend services powering dynamic widgets and personalized experiences across millions of daily requests on scalable NoSQL systems; redesigned the revenue attribution stream from Pub/Sub to a cron-based Airflow pipeline feeding JSON deltas to data science via PySpark for transformation and billing.}
+	\resumeItemListEnd
+
+	\resumeSubheading
+	{Pasarpolis}{Gurgaon}
+	{Software Engineer}{Jan 2021 -- Aug 2022}
 	\resumeItemListStart
 	\resumeItem{Core Service Development}
 	{Built agent-facing services to compare and book insurance policies using Django, Redis, Kafka, MySQL, and MongoDB — all hosted on GCP.}
@@ -126,20 +139,8 @@
 	{Designed modular financial components — tax calculation, policy endorsements, invoice generation, and a pluggable commission service — handling sensitive transaction flows.}
 	\resumeItemListEnd
 	
-	\resumeSubheading
-	{Nykaa}{Gurgaon}
-	{Senior Software Engineer}{Aug 2022 -- April 2023}
-	\resumeItemListStart
-	\resumeItem{System Optimization}
-	{Implemented application-side caching to reduce Redis network calls by ~70\% and cut API latency for the revenue attribution service.}
-	\resumeItem{High-Traffic Platform}
-	{Developed backend services powering dynamic widgets and personalized user experiences across millions of daily requests, backed by scalable NoSQL systems.}
-	\resumeItem{Data Pipeline Redesign}
-	{Replaced a Pub/Sub-based revenue attribution stream with a cron-based Airflow pipeline, sending JSON deltas to data science via PySpark for transformation and billing.}
-	\resumeItemListEnd
-	
 	\bigbreak
-	\centerline{Took a 2.5-year \textbf{career break} to pursue \textbf{UPSC} civil services, reaching final-stage interviews.}
+	\centerline{----- 2.5-year \textbf{career break} to pursue \textbf{UPSC}, reaching final-stage interviews -----}
 	\bigbreak
 	
 	\resumeSubheading
@@ -156,12 +157,12 @@
 	{Robert Bosch}{Bangalore}
 	{Senior Engineer}{July 2014 -- June 2017}
 	\resumeItemListStart
-	\resumeItem{Proof-of-Concept Development}
-	{Led PoC development for automotive and smart systems, including Bluetooth-enabled tyre monitoring, Wi-Fi blind spot camera integration, and Zigbee-based smart fields.}
+	\resumeItem{Embedded Systems R\&D}
+	{Led 0-to-1 development of Bluetooth tyre-pressure monitoring, Wi-Fi blind-spot camera, and Zigbee-based smart-field systems for automotive and IoT pilots.}
 	\resumeItem{Interface Libraries}
-	{Built reusable display libraries for dot-matrix LCDs to enable alphanumeric input and menu rendering via navigation keys.}
-	\resumeItem{Healthcare Prototyping}
-	{Designed and prototyped a handheld blood potassium monitoring device, owning both embedded firmware and hardware architecture.}
+	{Built reusable dot-matrix LCD display libraries enabling alphanumeric input and menu rendering via navigation keys.}
+	\resumeItem{Medical Device}
+	{Architected a handheld blood potassium monitoring device end-to-end, owning embedded firmware and hardware design.}
 	\resumeItemListEnd
 	
 	\resumeSubHeadingListEnd
@@ -171,7 +172,7 @@
 	\resumeSubHeadingListStart
 	\item{
 		\textbf{}{Python, Java, C, SQL, MongoDB,} 
-		\textbf{}{AWS, GCP, Django, Flask, Spring, Kafka, Redis, Clery, Docker, Terraform, PySpark, PostgreSQL, React}
+		\textbf{}{AWS, GCP, Django, Flask, Spring, Kafka, Redis, Celery, Docker, Terraform, PySpark, PostgreSQL, React}
 %		\textbf{Cloud Platforms}{: GCP, AWS}
 	}
 	\resumeSubHeadingListEnd
